@@ -1,5 +1,7 @@
 import React from "react";
 import "./globals.css";
+import { Footer, Navbar } from "@/components";
+import Head from "next/head";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,7 +11,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <div className="layout">
+    <Head>
+      <title>DFD Online Store</title>
+    </Head>
+    <header>
+      <Navbar />
+    </header>
+    <main className="main-container">
+      {children}
+    </main>
+    <footer>
+      <Footer />
+    </footer>
+  </div>
+  </body>
     </html>
   );
 }

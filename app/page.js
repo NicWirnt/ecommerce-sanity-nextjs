@@ -18,24 +18,24 @@ async function getBanner() {
 
 async function Home() {
   const products = await getProducts();
-  const banner = await getBanner();
+  const bannerData = await getBanner();
 
   return (
     <>
-      <HeroBanner banner={banner} />
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]}/>
 
       <div className="products-heading">
         <h2>Best Selling Products</h2>
-        <p>Speakers of many variations</p>
+        <p>Speakers of many generation and varieties</p>
       </div>
       <div className="products-container">
-        {products?.map((product) => product.name)}
+        {products?.map((product) => <Product key={product._id} product={product} />)}
       </div>
       <div className="w-10 h-10 bg-slate-500">
-        <button onClick={console.log("HI")}>HI</button>
+        
       </div>
 
-      <FooterBanner />
+      <FooterBanner footerBanner={bannerData && bannerData[0]}/>
     </>
   );
 }

@@ -1,30 +1,35 @@
 import Link from "next/link";
 import React from "react";
+import {urlFor} from "../lib/client"
+import Image from "next/image";
 
-const HeroBanner = ({ banner }) => {
+const HeroBanner = ({ heroBanner }) => {
+  const imgUrl = urlFor(heroBanner.image);
+ 
   return (
     <div className="hero-banner-container">
-      {console.log(banner)}
-      {banner.map((item, i) => (
-        <div key={i}>
-          <p className="beats-solo">{item.smallText}</p>
-          <h3>{item.midText}</h3>
-          <img
-            src={item.image}
-            alt="headphones"
-            className="hero-banner-image"
+      
+        <div>
+          <p className="beats-solo">{heroBanner.smallText}</p>
+          <h3>{heroBanner.midText}</h3>
+          <h1>{heroBanner.largeText1}</h1>
+        
+          <Image 
+          src={imgUrl.width(300).height(300).url()} width={300} height={300}
+          className="hero-banner-image"
+          alt="headphones"
           />
+
           <div>
-            <Link href="/product/ID">
-              <button type="button">{item.buttonText}</button>
+            <Link href={`/product/${heroBanner.product}`}>
+              <button type="button">{heroBanner.buttonText}</button>
             </Link>
             <div className="desc">
-              <h5>{item.description}</h5>
-              <p>{item.description}</p>
+              <h5>Description</h5>
+              <p>{heroBanner.desc}</p>
             </div>
           </div>
         </div>
-      ))}
     </div>
   );
 };
