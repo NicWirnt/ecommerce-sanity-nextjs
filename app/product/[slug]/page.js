@@ -1,5 +1,6 @@
+'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { client, urlFor } from '@/lib/client'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai'
@@ -17,27 +18,29 @@ export const getData = async ({params}) => {
 
 
 const ProductDetails = async ({params}) => {
-    
+    const [index , setIndex] = useState(0)
     const data = await getData({params});
-    
     const {image, name, details, price} = data.product;
-
+   
   return (
     <div>
         <div className='product-detail-container'>
             <div>
                 <div className='image-container'>
-                    <Image src={urlFor(image && image[0]).url()} width={400} height={400} alt={name}
-                    loading='lazy'
+                    <img src={urlFor(image && image[index])} alt={name} className='product-detail-image'
+                    
                     />
                 </div>
-                {/* <div className='small-images-container'>
+                <div className="small-images-container">
                         {image?.map((item, i) =>(
-                            <Image
-                                src={urlFor(item).url()} width={70} height={70} alt={item} loading='lazy'
+                            <img
+                                src={urlFor(item)} alt={item} 
+                                className={i === index ? "small-image selected-image" : "small-image"}
+                                onMouseEnter={()=>setIndex(i)}
                             />
                         ))}
-                    </div> */}
+                        {console.log(index)}
+                    </div>
                 
             </div>
             <div className='product-detail-desc'>
