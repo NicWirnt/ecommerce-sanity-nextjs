@@ -1,3 +1,12 @@
+### ECOMMERCE NEXTJS 13 SANITY CMS TAILWIND
+
+This app built with the tutorial of JSM as part of developer learning.
+The tutorial was made before NextJS 13 launch, so if anyone trying to follow the tutorial make sure you set up your working folder following the old nextjs version so you wont end up using Server Side Rendering as NextJS 13 will automaticall have a folder called app, and all the code inside it will run as SSR unless you put 'use client' at the beginning of your code, still i found out some trouble even using the use client.
+
+Some other things is the capturing the dynamic queries which is different if you compared NextJS 13 and the older version.
+Older version route is created in pages folder, and [yourFolderName] and inside it you create [slug].js to capture the dynamic link.
+In NextJS 13 you will have to
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
