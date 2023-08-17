@@ -5,7 +5,7 @@ The tutorial was made before NextJS 13 launch, so if anyone trying to follow the
 
 Some other things is the capturing the dynamic queries which is different if you compared NextJS 13 and the older version.
 Older version route is created in pages folder, and [yourFolderName] and inside it you create [slug].js to capture the dynamic link.
-In NextJS 13 you will have to
+In NextJS 13 you will have to create the folder in app folder (Following the changes to SSR), create [yourFolderName] and another folder [slug], and inside [slug] folder create a page.js which will capture the dynamic query if you go to home/[yourFolderName]/[dynamicQuery/slug]
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
